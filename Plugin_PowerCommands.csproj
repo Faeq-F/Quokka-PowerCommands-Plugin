@@ -1,0 +1,71 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net4.8-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <LangVersion>10.0</LangVersion>
+    <UseWPF>true</UseWPF>
+    <Product>Plugin_PowerCommands</Product>
+    <PublishSingleFile>true</PublishSingleFile>
+    <SelfContained>true</SelfContained>
+    <DebugType>embedded</DebugType>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+    <BaseOutputPath>G:\Quokka\Quokka\PlugBoard\Plugin_PowerCommands</BaseOutputPath>
+    <Configurations>Debug;Release;Plugin</Configurations>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Quokka\Quokka.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="ContextPane.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="ContextPane.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ContentWithTargetPath Include="settings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <TargetPath>settings.json</TargetPath>
+    </ContentWithTargetPath>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ContentWithTargetPath Include="Icons By Icons8.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <TargetPath>Icons By Icons8.txt</TargetPath>
+    </ContentWithTargetPath>
+
+    <ContentWithTargetPath Include="sleep.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <TargetPath>sleep.png</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="shutdown.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <TargetPath>shutdown.png</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="restart.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <TargetPath>restart.png</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="lock.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <TargetPath>lock.png</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="signOut.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <TargetPath>signOut.png</TargetPath>
+    </ContentWithTargetPath>
+  </ItemGroup>
+
+</Project>

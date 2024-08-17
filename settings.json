@@ -1,0 +1,9 @@
+{
+  "AllPowerCommandsCommand": "PowerCommands",
+  "ShutdownCommand": "shutdown",
+  "RestartCommand": "restart",
+  "SleepCommand": "sleep",
+  "SignOutCommand": "sign out",
+  "LockCommand": "lock",
+  "FuzzySearchThreshold": 5
+}

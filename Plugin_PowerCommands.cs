@@ -9,7 +9,7 @@ namespace Plugin_PowerCommands {
   /// <summary>
   /// The Power Commands plugin
   /// </summary>
-  public partial class PowerCommands : IPlugger {
+  public partial class PowerCommands : Plugin {
 
     private static Settings pluginSettings = new();
     internal static Settings PluginSettings { get => pluginSettings; set => pluginSettings = value; }
@@ -25,7 +25,7 @@ namespace Plugin_PowerCommands {
     /// <summary>
     /// <inheritdoc/>
     /// </summary>
-    public string PluggerName { get; set; } = "PowerCommands";
+    public override string PluggerName { get; set; } = "PowerCommands";
 
     /// <summary>
     /// <inheritdoc/><br />
@@ -33,7 +33,7 @@ namespace Plugin_PowerCommands {
     /// </summary>
     /// <param name="query"><inheritdoc /></param>
     /// <returns>power commands that are close enough to the query</returns>
-    public List<ListItem> OnQueryChange(string query) {
+    public override List<ListItem> OnQueryChange(string query) {
       List<ListItem> ItemList = new List<ListItem>();
 
       if (FuzzySearch.LD("lock", query) < PluginSettings.FuzzySearchThreshold
@@ -65,7 +65,7 @@ namespace Plugin_PowerCommands {
     /// <inheritdoc/>
     /// </summary>
     /// <returns>The commands in settings (all power commands are special commands)</returns>
-    public List<String> SpecialCommands() {
+    public override List<String> SpecialCommands() {
       return new List<String>() { PluginSettings.AllPowerCommandsCommand,
         PluginSettings.LockCommand, PluginSettings.RestartCommand,
         PluginSettings.SleepCommand, PluginSettings.ShutdownCommand, PluginSettings.SignOutCommand };
@@ -77,7 +77,7 @@ namespace Plugin_PowerCommands {
     /// </summary>
     /// <param name="command"><inheritdoc/></param>
     /// <returns>the respective power command</returns>
-    public List<ListItem> OnSpecialCommand(string command) {
+    public override List<ListItem> OnSpecialCommand(string command) {
       switch (command) {
         case var value when value == PluginSettings.LockCommand: return new List<ListItem>() { new LockItem() };
         case var value when value == PluginSettings.RestartCommand: return new List<ListItem>() { new RestartItem() };
@@ -88,25 +88,6 @@ namespace Plugin_PowerCommands {
       }
     }
 
-    /// <summary>
-    /// <inheritdoc/><br/>
-    /// Does Nothing.
-    /// </summary>
-    public void OnAppStartup() { }
-
-    /// <summary>
-    /// <inheritdoc/><br/>
-    /// Does Nothing.
-    /// </summary>
-    public void OnAppShutdown() { }
-
-    /// <summary>
-    /// <inheritdoc/><br/>
-    /// Does Nothing.
-    /// </summary>
-    public void OnSearchWindowStartup() { }
-
   }
-
 
 }

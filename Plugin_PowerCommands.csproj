@@ -22,16 +22,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Quokka\Quokka.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Update="ContextPane.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Page Update="ContextPane.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-  </ItemGroup>
 
   <ItemGroup>
     <ContentWithTargetPath Include="settings.json">

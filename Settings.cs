@@ -29,10 +29,10 @@ public class Settings {
   /// <summary>
   ///   The threshold for when to consider an application
   ///   name is similar enough to the query for it to be
-  ///   displayed (defaults to 5). Currently uses the
+  ///   displayed (defaults to 3). Currently uses the
   ///   Levenshtein distance; the larger the number, the
   ///   bigger the difference.
   /// </summary>
-  public int FuzzySearchThreshold { get; set; } = 5;
+  public int FuzzySearchThreshold { get; set; } = 3;
 }
 

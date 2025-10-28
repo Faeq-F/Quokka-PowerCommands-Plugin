@@ -5,5 +5,5 @@
   "SleepCommand": "sleep",
   "SignOutCommand": "sign out",
   "LockCommand": "lock",
-  "FuzzySearchThreshold": 3
+  "FuzzySearchThreshold": 98
 }

@@ -4,6 +4,7 @@ using Quokka.PluginArch;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace Plugin_PowerCommands {
   /// <summary>
@@ -34,31 +35,17 @@ namespace Plugin_PowerCommands {
     /// <param name="query"><inheritdoc /></param>
     /// <returns>power commands that are close enough to the query</returns>
     public override List<ListItem> OnQueryChange(string query) {
-      List<ListItem> ItemList = new List<ListItem>();
-
-      if (FuzzySearch.LD("lock", query) < PluginSettings.FuzzySearchThreshold
-          || FuzzySearch.LD(PluginSettings.LockCommand, query) < PluginSettings.FuzzySearchThreshold) {
-        ItemList.Add(new LockItem());
-      }
-      if (FuzzySearch.LD("restart", query) < PluginSettings.FuzzySearchThreshold
-          || FuzzySearch.LD(PluginSettings.RestartCommand, query) < PluginSettings.FuzzySearchThreshold) {
-        ItemList.Add(new RestartItem());
-      }
-      if (FuzzySearch.LD("shutdown", query) < PluginSettings.FuzzySearchThreshold
-          || FuzzySearch.LD(PluginSettings.ShutdownCommand, query) < PluginSettings.FuzzySearchThreshold) {
-        ItemList.Add(new ShutdownItem());
-      }
-      if (FuzzySearch.LD("sleep", query) < PluginSettings.FuzzySearchThreshold
-         || FuzzySearch.LD(PluginSettings.SleepCommand, query) < PluginSettings.FuzzySearchThreshold) {
-        ItemList.Add(new SleepItem());
-      }
-      if (FuzzySearch.LD("sign out", query) < PluginSettings.FuzzySearchThreshold
-        || FuzzySearch.LD("log off", query) < PluginSettings.FuzzySearchThreshold
-        || FuzzySearch.LD(PluginSettings.SignOutCommand, query) < PluginSettings.FuzzySearchThreshold) {
-        ItemList.Add(new SignOutItem());
-      }
-
-      return ItemList;
+      List<String> commands = SpecialCommands();
+      commands.RemoveAt(0);
+      List<ListItem> items = new List<ListItem>() {
+        new LockItem(),
+        new RestartItem(),
+        new SleepItem(),
+        new ShutdownItem(),
+        new SignOutItem(),
+      };
+      return FuzzySearch.searchAll(query, commands, PluginSettings.FuzzySearchThreshold)
+        .Select(x => items[x.Index]).ToList();
     }
 
     /// <summary>

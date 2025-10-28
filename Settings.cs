@@ -27,12 +27,11 @@ public class Settings {
   /// </summary>
   public string LockCommand { get; set; } = "lock";
   /// <summary>
-  ///   The threshold for when to consider an application
-  ///   name is similar enough to the query for it to be
-  ///   displayed (defaults to 3). Currently uses the
-  ///   Levenshtein distance; the larger the number, the
-  ///   bigger the difference.
+  ///   The threshold for when to consider a command 
+  ///   is similar enough to the query for it to be
+  ///   displayed (defaults to 98). The larger the number,
+  ///   the more similar it needs to be.
   /// </summary>
-  public int FuzzySearchThreshold { get; set; } = 3;
+  public int FuzzySearchThreshold { get; set; } = 98;
 }
 

@@ -1,5 +1,6 @@
 ﻿using Quokka;
 using Quokka.ListItems;
+using Quokka.PluginArch;
 using System;
 using System.Runtime.InteropServices;
 using System.Windows.Media.Imaging;
@@ -11,9 +12,11 @@ namespace Plugin_PowerCommands {
     public static extern void LockWorkStation();
 
     public LockItem() {
-      this.Name = "Lock";
-      this.Description = "Secure your PC, requiring a password to resume your session";
-      this.Icon = new BitmapImage(new Uri(Environment.CurrentDirectory + "\\PlugBoard\\Plugin_PowerCommands\\Plugin\\lock.png"));
+      Name = "Lock";
+      Description = "Secure your PC, requiring a password to resume your session";
+      UiDispatcher.BeginInvoke(() => {
+        Icon = new BitmapImage(new Uri(Environment.CurrentDirectory + "\\PlugBoard\\Plugin_PowerCommands\\Plugin\\lock.png"));
+      });
     }
 
     public override void Execute() {

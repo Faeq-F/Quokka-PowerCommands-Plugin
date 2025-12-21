@@ -1,24 +1,28 @@
 ﻿using Quokka.ListItems;
 using Quokka.PluginArch;
-using System;
 using System.Diagnostics;
-using System.Windows.Media.Imaging;
 
-namespace Plugin_PowerCommands {
-  class ShutdownItem : ListItem {
+namespace PluginPowerCommands
+{
+  class ShutdownItem : ListItem
+  {
 
-    public ShutdownItem() {
+    public ShutdownItem()
+    {
       Name = "Shutdown";
       Description = "Closes all apps and turns off the PC (This app is shutdown before the action is carried out)";
-      UiDispatcher.BeginInvoke(() => {
-        Icon = new BitmapImage(new Uri(Environment.CurrentDirectory + "\\PlugBoard\\Plugin_PowerCommands\\Plugin\\shutdown.png"));
-      });
+      Icon = IconCache.GetOrAdd(
+        Environment.CurrentDirectory + "\\PlugBoard\\PluginPowerCommands\\Plugin\\shutdown.png"
+      );
     }
 
-    public override void Execute() {
-      var psi = new ProcessStartInfo("shutdown", "/sg /t 3");
-      psi.CreateNoWindow = true;
-      psi.UseShellExecute = false;
+    public override void Execute()
+    {
+      var psi = new ProcessStartInfo("shutdown", "/sg /t 3")
+      {
+        CreateNoWindow = true,
+        UseShellExecute = false
+      };
       Process.Start(psi);
       Quokka.App.Current.Shutdown();
     }

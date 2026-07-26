@@ -1,10 +1,10 @@
-﻿using Quokka.ListItems;
+using Quokka.ListItems;
 using Quokka.PluginArch;
 using System.Diagnostics;
 
 namespace PluginPowerCommands
 {
-  class RestartItem : ListItem
+  internal sealed class RestartItem : ListItem
   {
 
     public RestartItem()

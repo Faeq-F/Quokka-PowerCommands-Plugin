@@ -11,9 +11,7 @@ namespace PluginPowerCommands
   /// </summary>
   public partial class PowerCommands : Plugin
   {
-
-    private static Settings pluginSettings = new();
-    internal static Settings PluginSettings { get => pluginSettings; set => pluginSettings = value; }
+    internal static Settings PluginSettings { get; set; } = new();
 
     /// <summary>
     /// Creates the plugin, loading the plugins settings

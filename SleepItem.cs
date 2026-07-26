@@ -1,11 +1,11 @@
-﻿using Quokka;
+using Quokka;
 using Quokka.ListItems;
 using Quokka.PluginArch;
 using System.Windows.Forms;
 
 namespace PluginPowerCommands
 {
-  class SleepItem : ListItem
+  internal sealed class SleepItem : ListItem
   {
 
     public SleepItem()

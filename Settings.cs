@@ -1,8 +1,9 @@
-﻿namespace PluginPowerCommands
+namespace PluginPowerCommands
 {
   /// <summary>
   /// The plugin's settings
   /// </summary>
+#pragma warning disable CA1724 // Type name conflicts with namespace name
   public class Settings
   {
     /// <summary>

@@ -1,14 +1,15 @@
-﻿using Quokka;
+using Quokka;
 using Quokka.ListItems;
 using Quokka.PluginArch;
 using System.Runtime.InteropServices;
 
 namespace PluginPowerCommands
 {
-  class LockItem : ListItem
+  internal sealed class LockItem : ListItem
   {
 
     [DllImport("user32.dll")]
+    [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
     public static extern void LockWorkStation();
 
     public LockItem()

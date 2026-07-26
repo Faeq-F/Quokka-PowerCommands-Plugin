@@ -1,10 +1,10 @@
-﻿using Quokka.ListItems;
+using Quokka.ListItems;
 using Quokka.PluginArch;
 using System.Diagnostics;
 
 namespace PluginPowerCommands
 {
-  class SignOutItem : ListItem
+  internal sealed class SignOutItem : ListItem
   {
 
     public SignOutItem()

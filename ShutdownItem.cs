@@ -1,10 +1,10 @@
-﻿using Quokka.ListItems;
+using Quokka.ListItems;
 using Quokka.PluginArch;
 using System.Diagnostics;
 
 namespace PluginPowerCommands
 {
-  class ShutdownItem : ListItem
+  internal sealed class ShutdownItem : ListItem
   {
 
     public ShutdownItem()
